@@ -8,3 +8,4 @@ D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\obj\Debug\kw_enrolment
 D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\obj\Debug\kw_enrolment_practice.csproj.CoreCompileInputs.cache
 D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\obj\Debug\kw_enrolment_practice.exe
 D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\obj\Debug\kw_enrolment_practice.pdb
+D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\obj\Debug\kw_enrolment_practice.Form2.resources
