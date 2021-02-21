@@ -130,8 +130,9 @@ namespace kw_enrolment_practice
                 curTime.Text = "10:00:00";
                 practiceStart();
                 MessageBox.Show("수강신청이 시작되었습니다.", "수강신청 시작", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
-            else curTime.Text = "09:59:"+sec.ToString();
+            curTime.Text = "09:59:"+sec.ToString();
         }
 
         private void enrolBtn_Click(object sender, EventArgs e)
