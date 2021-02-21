@@ -6,38 +6,147 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace kw_enrolment_practice
 {
     public partial class Form2 : Form
     {
+        int sec = 50;
+        int getNum = 0;
+        const int numOfSub = 7;
+        bool isStarted = false;
+        int selected = -1;
+        List<bool> isFull = new List<bool>();
+        List<bool> isDone = new List<bool>();
         public Form2()
         {
             InitializeComponent();
 
         }
 
+        void showRef(bool opt)
+        {
+            codeRef.Visible = opt;
+            subRef.Visible = opt;
+            pointRef.Visible = opt;
+            profRef.Visible = opt; 
+            dayRef.Visible = opt;
+            timeRef.Visible = opt;
+            profRef.Visible = opt;
+            roomRef.Visible = opt;
+            cntRef.Visible = opt;
+        }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0 || e.ColumnIndex !=
+            favList.Columns["add"].Index) return;
 
+            if (!isStarted)
+            {
+                MessageBox.Show("수강신청이 시작된 이후에만 조회가 가능합니다.", "수강신청 연습", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Thread.Sleep(300);
+            selected = e.RowIndex;
+            codeRef.Text = favList.Rows[e.RowIndex].Cells["code"].Value as String;
+            subRef.Text = favList.Rows[e.RowIndex].Cells["sub"].Value as String; 
+            pointRef.Text = favList.Rows[e.RowIndex].Cells["point"].Value as String; 
+            profRef.Text = favList.Rows[e.RowIndex].Cells["prof"].Value as String; 
+            String day = favList.Rows[e.RowIndex].Cells["time"].Value as String; day = day.Substring(0, 1);
+            String time = favList.Rows[e.RowIndex].Cells["time"].Value as String; time = time.Substring(2, 1);
+            dayRef.Text = day;
+            timeRef.Text = time;
+            cntRef.Text = isFull[e.RowIndex] ? "만석" : "여석";
+            showRef(true);
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            String[] dayList = new String[7]{ "월","화","수","목","금","토","일"};
+            Random rand = new Random();
+            for(int i = 1; i <= numOfSub; i++)
+            {
+                String no = i.ToString();
+                String code = rand.Next(1000, 10000).ToString() + "-" + rand.Next(0, 10).ToString() + "-" + rand.Next(1000, 10000).ToString() + "-" + rand.Next(10, 100).ToString();
+                String sub = "과목" + no;
+                String point = rand.Next(1, 4).ToString();
+                String prof = "교수님" + no;
+                String time = dayList[rand.Next(0, 7)] + "(" + rand.Next(1, 9).ToString() + ")";
+                favList.Rows.Add("조회", no, code, sub, point, prof, time);
 
-            dataGridView1.Rows.Add("조회","1", "0000-0-0000-00", "과목1", "3", "교수님", "월(1)");
-            dataGridView1.Rows.Add("조회", "2", "0000-0-0000-00", "과목2", "3", "교수님", "화(2)");
-            dataGridView1.Rows.Add("조회", "3", "0000-0-0000-00", "과목3", "3", "교수님", "수(3)");
-            dataGridView1.Rows.Add("조회", "4", "0000-0-0000-00", "과목4", "3", "교수님", "목(4)");
-            dataGridView1.Rows.Add("조회", "5", "0000-0-0000-00", "과목5", "3", "교수님", "금(5)");
-            dataGridView1.Rows.Add("조회", "6", "0000-0-0000-00", "과목6", "3", "교수님", "토(6)");
-            dataGridView1.Rows.Add("조회", "7", "0000-0-0000-00", "과목7", "3", "교수님", "일(7)");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            startBtn.Visible = false;
+            MessageBox.Show("10초 후 수강신청이 시작됩니다.\n서버 시간을 주목해주세요!", "수강신청 시작", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            timer1.Enabled = true;
+        }
+
+        void practiceStart()
+        {
+            Random rand = new Random();
+            isStarted = true;
+            enrolBtn.Enabled = true;
+            for (int i = 0; i < numOfSub; i++)
+            {
+                isFull.Add(rand.Next(0, 11) < 3);
+                isDone.Add(false);
+            }
+                
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            sec++;
+            if (sec == 55) curTime.ForeColor = Color.Red;
+            else if (sec == 60)
+            {
+                timer1.Enabled = false;
+                curTime.Text = "10:00:00";
+                practiceStart();
+                MessageBox.Show("수강신청이 시작되었습니다.", "수강신청 시작", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else curTime.Text = "09:59:"+sec.ToString();
+        }
+
+        private void enrolBtn_Click(object sender, EventArgs e)
+        {
+            if (selected==-1)
+            {
+                MessageBox.Show("수강신청하려는 과목을 먼저 조회해주세요!", "오류", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else if (isDone[selected])
+            {
+                MessageBox.Show("이미 수강신청이 완료된 과목입니다!", "수강신청 연습", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else if (isFull[selected])
+            {
+                MessageBox.Show("해당 과목은 만석입니다.", "여석 없음", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            getList.Rows.Add((++getNum).ToString(), codeRef.Text, typeRef.Text, subRef.Text, pointRef.Text, profRef.Text, dayRef.Text, timeRef.Text, roomRef.Text, "", "", "");
+
+            showRef(false);
+            isDone[selected] = true;
+            selected = -1;
         }
     }
 }
