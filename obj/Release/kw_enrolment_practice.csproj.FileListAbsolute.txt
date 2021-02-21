@@ -1,0 +1,12 @@
+D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\bin\Release\kw_enrolment_practice.exe.config
+D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\bin\Release\kw_enrolment_practice.exe
+D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\bin\Release\kw_enrolment_practice.pdb
+D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\obj\Release\kw_enrolment_practice.csprojAssemblyReference.cache
+D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\obj\Release\kw_enrolment_practice.Form1.resources
+D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\obj\Release\kw_enrolment_practice.Form2.resources
+D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\obj\Release\kw_enrolment_practice.Form3.resources
+D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\obj\Release\kw_enrolment_practice.Properties.Resources.resources
+D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\obj\Release\kw_enrolment_practice.csproj.GenerateResource.cache
+D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\obj\Release\kw_enrolment_practice.csproj.CoreCompileInputs.cache
+D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\obj\Release\kw_enrolment_practice.exe
+D:\YJYOON\dev\kw_enrolment_practice\kw_enrolment_practice\obj\Release\kw_enrolment_practice.pdb

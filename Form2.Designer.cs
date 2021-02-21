@@ -448,6 +448,7 @@
             this.getList.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.getList.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Cyan;
             this.getList.RowTemplate.Height = 45;
+            this.getList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.getList.Size = new System.Drawing.Size(794, 315);
             this.getList.TabIndex = 24;
             // 
@@ -570,6 +571,7 @@
             this.Controls.Add(this.favList);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "광운대학교 수강신청 연습 프로그램";

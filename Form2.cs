@@ -85,11 +85,12 @@ namespace kw_enrolment_practice
                 favList.Rows.Add("조회", no, code, sub, point, prof, time);
 
             }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("수강신청 연습 프로그램을 종료하시겠습니까?", "YesOrNo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("수강신청 연습 프로그램을 종료하시겠습니까?", "수강신청 연습", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 Application.Exit();      
         }
 
