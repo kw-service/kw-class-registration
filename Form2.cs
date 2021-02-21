@@ -16,15 +16,16 @@ namespace kw_enrolment_practice
     {
         int sec = 50;
         int getNum = 0;
-        const int numOfSub = 7;
+        int numOfSub = 6;
         bool isStarted = false;
         int selected = -1;
         List<bool> isFull = new List<bool>();
         List<bool> isDone = new List<bool>();
-        public Form2()
+        List<int> subType = new List<int>();
+        public Form2(int subNum)
         {
             InitializeComponent();
-
+            numOfSub = subNum;
         }
 
         void showRef(bool opt)
@@ -38,6 +39,7 @@ namespace kw_enrolment_practice
             profRef.Visible = opt;
             roomRef.Visible = opt;
             cntRef.Visible = opt;
+            typeRef.Visible = opt;
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -50,7 +52,10 @@ namespace kw_enrolment_practice
                 return;
             }
 
-            Thread.Sleep(300);
+            Random rand = new Random();
+            String[] typeList = new String[6] { "기필", "기선", "교필", "교선", "전필", "전선"};
+
+            Thread.Sleep(rand.Next(300,500));
             selected = e.RowIndex;
             codeRef.Text = favList.Rows[e.RowIndex].Cells["code"].Value as String;
             subRef.Text = favList.Rows[e.RowIndex].Cells["sub"].Value as String; 
@@ -60,6 +65,7 @@ namespace kw_enrolment_practice
             String time = favList.Rows[e.RowIndex].Cells["time"].Value as String; time = time.Substring(2, 1);
             dayRef.Text = day;
             timeRef.Text = time;
+            typeRef.Text = typeList[subType[e.RowIndex]];
             cntRef.Text = isFull[e.RowIndex] ? "만석" : "여석";
             showRef(true);
         }
@@ -83,7 +89,8 @@ namespace kw_enrolment_practice
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("수강신청 연습 프로그램을 종료하시겠습니까?", "YesOrNo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                Application.Exit();      
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -103,10 +110,12 @@ namespace kw_enrolment_practice
             Random rand = new Random();
             isStarted = true;
             enrolBtn.Enabled = true;
+            enrolBtn.BackColor = Color.Yellow;
             for (int i = 0; i < numOfSub; i++)
             {
-                isFull.Add(rand.Next(0, 11) < 3);
+                isFull.Add(rand.Next(0, 10) < 2);
                 isDone.Add(false);
+                subType.Add(rand.Next(0, 6));
             }
                 
         }
@@ -138,14 +147,15 @@ namespace kw_enrolment_practice
             }
             else if (isFull[selected])
             {
-                MessageBox.Show("해당 과목은 만석입니다.", "여석 없음", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("해당 과목은 만석입니다.", "여석 없음", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            getList.Rows.Add((++getNum).ToString(), codeRef.Text, typeRef.Text, subRef.Text, pointRef.Text, profRef.Text, dayRef.Text, timeRef.Text, roomRef.Text, "", "", "");
-
+            getList.Rows.Add((++getNum).ToString(), codeRef.Text, typeRef.Text, subRef.Text, pointRef.Text, profRef.Text, dayRef.Text, timeRef.Text+"교시", roomRef.Text, "", "", "");
+            getList.CurrentCell = null;
             showRef(false);
             isDone[selected] = true;
+            this.Text = "수강신청 성공 과목 수 [" + getNum.ToString() + "/" + numOfSub.ToString() + "]";
             selected = -1;
         }
     }

@@ -27,8 +27,8 @@ namespace kw_enrolment_practice
         {
             timer1.Enabled = false;
             this.Hide();
-            Form2 form2 = new Form2();
-            form2.Show();
+            Form3 form3 = new Form3();
+            form3.Show();
         }
     }
 }

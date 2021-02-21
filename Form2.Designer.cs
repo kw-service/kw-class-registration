@@ -106,7 +106,7 @@
             this.point,
             this.prof,
             this.time});
-            this.favList.Location = new System.Drawing.Point(811, 379);
+            this.favList.Location = new System.Drawing.Point(811, 378);
             this.favList.MultiSelect = false;
             this.favList.Name = "favList";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -121,8 +121,9 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.favList.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.favList.RowTemplate.Height = 35;
-            this.favList.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.favList.Size = new System.Drawing.Size(592, 319);
+            this.favList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.favList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.favList.Size = new System.Drawing.Size(593, 320);
             this.favList.TabIndex = 0;
             this.favList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -200,7 +201,7 @@
             // 
             // enrolBtn
             // 
-            this.enrolBtn.BackColor = System.Drawing.Color.Yellow;
+            this.enrolBtn.BackColor = System.Drawing.SystemColors.Control;
             this.enrolBtn.Enabled = false;
             this.enrolBtn.Font = new System.Drawing.Font("굴림", 9F);
             this.enrolBtn.Location = new System.Drawing.Point(674, 599);
@@ -356,7 +357,7 @@
             // profRef
             // 
             this.profRef.AutoSize = true;
-            this.profRef.Location = new System.Drawing.Point(745, 387);
+            this.profRef.Location = new System.Drawing.Point(743, 387);
             this.profRef.Name = "profRef";
             this.profRef.Size = new System.Drawing.Size(41, 12);
             this.profRef.TabIndex = 19;
@@ -433,6 +434,7 @@
             this.getList.Location = new System.Drawing.Point(12, 21);
             this.getList.MultiSelect = false;
             this.getList.Name = "getList";
+            this.getList.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -445,8 +447,7 @@
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.getList.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.getList.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Cyan;
-            this.getList.RowTemplate.Height = 35;
-            this.getList.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.getList.RowTemplate.Height = 45;
             this.getList.Size = new System.Drawing.Size(794, 315);
             this.getList.TabIndex = 24;
             // 
@@ -454,72 +455,84 @@
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "순번";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 37;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.HeaderText = "학정번호";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Width = 110;
             // 
             // type
             // 
             this.type.HeaderText = "구분";
             this.type.Name = "type";
+            this.type.ReadOnly = true;
             this.type.Width = 37;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.HeaderText = "과목명";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 200;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.HeaderText = "학점";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 37;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.HeaderText = "담당교수";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Width = 80;
             // 
             // day
             // 
             this.day.HeaderText = "요일1";
             this.day.Name = "day";
+            this.day.ReadOnly = true;
             this.day.Width = 77;
             // 
             // when
             // 
             this.when.HeaderText = "시간1";
             this.when.Name = "when";
+            this.when.ReadOnly = true;
             this.when.Width = 77;
             // 
             // room
             // 
             this.room.HeaderText = "강의실1";
             this.room.Name = "room";
+            this.room.ReadOnly = true;
             this.room.Width = 87;
             // 
             // day2
             // 
             this.day2.HeaderText = "요일2";
             this.day2.Name = "day2";
+            this.day2.ReadOnly = true;
             this.day2.Width = 77;
             // 
             // when2
             // 
             this.when2.HeaderText = "시간2";
             this.when2.Name = "when2";
+            this.when2.ReadOnly = true;
             this.when2.Width = 77;
             // 
             // room2
             // 
             this.room2.HeaderText = "강의실2";
             this.room2.Name = "room2";
+            this.room2.ReadOnly = true;
             this.room2.Width = 87;
             // 
             // Form2
@@ -556,6 +569,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.favList);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "광운대학교 수강신청 연습 프로그램";
