@@ -4,7 +4,7 @@
 
 광운대학교 학생들을 위한 수강신청 모의 연습 프로그램입니다.
 
-[다운로드](https://bit.ly/37AbpjK)
+[다운로드](https://bit.ly/3aEiaCR)
 
 <br>
 
