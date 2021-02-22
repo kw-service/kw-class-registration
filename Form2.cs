@@ -28,18 +28,19 @@ namespace kw_enrolment_practice
             numOfSub = subNum;
         }
 
-        void showRef(bool opt)
+        void clearRef()
         {
-            codeRef.Visible = opt;
-            subRef.Visible = opt;
-            pointRef.Visible = opt;
-            profRef.Visible = opt; 
-            dayRef.Visible = opt;
-            timeRef.Visible = opt;
-            profRef.Visible = opt;
-            roomRef.Visible = opt;
-            cntRef.Visible = opt;
-            typeRef.Visible = opt;
+            codeRef.Text =
+            subRef.Text =
+            pointRef.Text =
+            profRef.Text =
+            dayRef.Text =
+            timeRef.Text =
+            profRef.Text =
+            roomRef.Text =
+            cntRef.Text =
+            typeRef.Text =
+            "";
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -67,7 +68,7 @@ namespace kw_enrolment_practice
             timeRef.Text = time;
             typeRef.Text = typeList[subType[e.RowIndex]];
             cntRef.Text = isFull[e.RowIndex] ? "만석" : "여석";
-            showRef(true);
+            roomRef.Text = "새404";
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -155,10 +156,35 @@ namespace kw_enrolment_practice
 
             getList.Rows.Add((++getNum).ToString(), codeRef.Text, typeRef.Text, subRef.Text, pointRef.Text, profRef.Text, dayRef.Text, timeRef.Text+"교시", roomRef.Text, "", "", "");
             getList.CurrentCell = null;
-            showRef(false);
+            clearRef();
             isDone[selected] = true;
             this.Text = "수강신청 성공 과목 수 [" + getNum.ToString() + "/" + numOfSub.ToString() + "]";
             selected = -1;
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/yjyoon-dev/kw-enrolment-practice");
         }
     }
 }
