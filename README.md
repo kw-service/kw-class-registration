@@ -4,7 +4,7 @@
 
 광운대학교 학생들을 위한 수강신청 모의 연습 프로그램입니다.
 
-최신버전: v2.1 [다운로드](https://www.dropbox.com/s/6e0myvukqw2wcg8/%EA%B4%91%EC%9A%B4%EB%8C%80%20%EC%88%98%EA%B0%95%EC%8B%A0%EC%B2%AD%20%EC%97%B0%EC%8A%B5%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%202.1.exe?dl=0)
+최신버전: v2.1 [다운로드](https://github.com/yjyoon-dev/kw-enrolment-practice/releases/tag/v2.1)
 
 <br>
 
