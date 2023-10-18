@@ -2,7 +2,7 @@
 
 ![0](assets/title.png)
 
-버전 | 다운로드 수 (오늘/누적)
+버전 | 조회수 (오늘 / 누적)
 ---|---
 이전 버전| [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyjyoon-dev%2Fkw-enrolment-practice&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=&edge_flat=false)](https://hits.seeyoufarm.com)
 현재 버전| [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fkw-services%2Fkw-class-registration&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=&edge_flat=false)](https://hits.seeyoufarm.com)
