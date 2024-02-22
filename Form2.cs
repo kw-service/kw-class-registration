@@ -154,8 +154,11 @@ namespace kw_enrolment_practice
                 return;
             }
 
+            Thread.Sleep(new Random().Next(1000, 1500));
+
             getList.Rows.Add((++getNum).ToString(), codeRef.Text, typeRef.Text, subRef.Text, pointRef.Text, profRef.Text, dayRef.Text, timeRef.Text+"교시", roomRef.Text, "", "", "");
             getList.CurrentCell = null;
+
             clearRef();
             isDone[selected] = true;
             this.Text = "수강신청 성공 과목 수 [" + getNum.ToString() + "/" + numOfSub.ToString() + "]";
